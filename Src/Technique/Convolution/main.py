@@ -9,8 +9,6 @@ image_path = os.path.join(BASE_DIR, "..", "..", "..", "Images", "lena_std.tif")
 image = cv.imread(image_path)
 if __name__ == "__main__":
     # Load ảnh theo đường dẫn của bạn
-    BASE_DIR = os.path.dirname(__file__)
-    image_path = os.path.join(BASE_DIR, "..", "..", "Images", "lena_std.tif")
     
     # Tạo một ảnh numpy giả nếu không tìm thấy file thật để code vẫn chạy được
     if not os.path.exists(image_path):
@@ -39,7 +37,7 @@ if __name__ == "__main__":
     conv_layer = Conv2D(in_channels=3, out_channels=16, kernel_size=3)
     
     # Ép filter 0 thành bộ lọc có cấu trúc rõ ràng (thay vì nhiễu ngẫu nhiên)
-    conv_layer.set_edge_detection_filter()
+    # conv_layer.set_edge_detection_filter()
     
     # Quét ảnh qua layer Convolution
     feature_maps = conv_layer.forward(image_resized)
